@@ -4,17 +4,20 @@ import Layout from './layout/Layout';
 import HomePage from '../pages/HomePage';
 import UsersPage from '../pages/UsersPage';
 import AboutPage from '../pages/AboutPage';
+import { UsersProvider } from '../context/UsersContext';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/users" element={<UsersPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <UsersProvider>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </UsersProvider>
   );
 }

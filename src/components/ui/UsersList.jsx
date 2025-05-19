@@ -1,40 +1,14 @@
-import React from 'react';
-
-import { useState, useEffect } from 'react';
-import { fetchUsers } from '../../services/api';
+import React, { useEffect } from 'react';
+import { useUsers } from '../../context/UsersContext';
 
 import Loader from './Loader';
 
 export default function UsersList() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { users, loading, error, loadUsers } = useUsers();
 
   useEffect(() => {
-    const loadUsers = async () => {
-      try {
-        setLoading(true);
-        
-        // Künstliche Verzögerung hinzufügen (1,5 Sekunden)
-        const data = await new Promise(resolve => {
-          setTimeout(async () => {
-            const result = await fetchUsers();
-            resolve(result);
-          }, 1500);
-        });
-        
-        setUsers(data);
-        setError(null);
-      } catch (err) {
-        setError('Fehler beim Laden der Benutzerdaten');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     loadUsers();
-  }, []);
+  }, [loadUsers]);
 
   if (loading) {
     return <Loader text="Loading data ..." />;
