@@ -7,6 +7,7 @@ A modern webapp boilerplate built with the latest versions of Vite, React, and T
 - ⚡️ **Vite** - Ultra-fast development environment and build tool
 - ⚛️ **React 19** - With the new createRoot API
 - 🎨 **Tailwind CSS 4** - Utility-first CSS framework
+- 🧭 **React Router v7** - Declarative routing for React
 - 📱 **Responsive Design** - Fully mobile-optimized
 - 🧩 **Headless UI v2** - Accessible, unstyled UI components
 - 🦸 **Heroicons** - Beautiful SVG icons for UI
@@ -80,6 +81,7 @@ vite-react-tailwind-webapp/
 │   │   ├── layout/    # Layout components
 │   │   └── ui/        # UI components
 │   ├── hooks/         # Custom React hooks
+│   ├── pages/         # Page components for routing
 │   ├── services/      # API services
 │   ├── utils/         # Helper functions
 │   ├── index.css      # Global styles
@@ -113,8 +115,41 @@ module.exports = {
 Configure the API base URL in [`src/services/api.js`](src/services/api.js):
 
 ```js
-const API_BASE_URL = 'https://your-api-url.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://your-api-url.com/api';
 ```
+
+### Routing Configuration
+
+The application uses React Router v7 for navigation. Routes are defined in [`src/components/App.jsx`](src/components/App.jsx):
+
+```jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './layout/Layout';
+import HomePage from '../pages/HomePage';
+import UsersPage from '../pages/UsersPage';
+import AboutPage from '../pages/AboutPage';
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          {/* Add your routes here */}
+        </Routes>
+      </Layout>
+    </BrowserRouter>
+  );
+}
+```
+
+To create a new page:
+
+1. Add a new component in the `src/pages` directory
+2. Create a new route in `App.jsx`
+3. Update the navigation links in `src/components/layout/Navigation.jsx` if needed
 
 ## License
 
