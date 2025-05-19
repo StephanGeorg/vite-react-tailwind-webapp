@@ -23,7 +23,7 @@ A modern webapp boilerplate built with the latest versions of Vite, React, and T
 
 ```bash
 # Clone repository
-git clone https://github.com/StepahnGeorg/vite-react-tailwind-webapp.git
+git clone https://github.com/StephanGeorg/vite-react-tailwind-webapp.git
 cd vite-react-tailwind-webapp
 
 # Install dependencies
