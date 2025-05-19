@@ -1,6 +1,6 @@
 # Vite React Tailwind Webapp Boilerplate
 
-A modern spreadsheet webapp built with the latest versions of Vite, React, and Tailwind CSS.
+A modern webapp boilerplate built with the latest versions of Vite, React, and Tailwind CSS.
 
 ## Features
 
@@ -23,8 +23,8 @@ A modern spreadsheet webapp built with the latest versions of Vite, React, and T
 
 ```bash
 # Clone repository
-git clone https://github.com/username/distance-tools-spreadsheet-frontend.git
-cd distance-tools-spreadsheet-frontend
+git clone https://github.com/StepahnGeorg/vite-react-tailwind-webapp.git
+cd vite-react-tailwind-webapp
 
 # Install dependencies
 npm install
@@ -72,7 +72,7 @@ npm run serve
 ## Project Structure
 
 ```
-distance-tools-spreadsheet-frontend/
+vite-react-tailwind-webapp/
 ├── public/            # Static assets
 ├── src/
 │   ├── assets/        # Application assets
