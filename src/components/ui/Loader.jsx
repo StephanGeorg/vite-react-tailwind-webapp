@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Loader({ text = "Loading data ..." }) {
   return (
@@ -33,3 +34,7 @@ export default function Loader({ text = "Loading data ..." }) {
     </div>
   );
 }
+
+Loader.propTypes = {
+  text: PropTypes.string
+};
