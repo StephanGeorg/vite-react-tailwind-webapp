@@ -122,5 +122,3 @@ ISC
 
 ---
 
-Developed by [s.georg@hey.com](mailto:s.georg@hey.com)
-
