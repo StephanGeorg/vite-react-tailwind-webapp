@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import { fetchUsers } from '../services/api';
 
+import { delay } from '../utils/helpers';
+
 const UsersContext = createContext();
 
 export function UsersProvider({ children }) {
@@ -17,14 +19,10 @@ export function UsersProvider({ children }) {
     
     try {
       setLoading(true);
-      
+
       // Artificial delay (can be removed in production)
-      const data = await new Promise(resolve => {
-        setTimeout(async () => {
-          const result = await fetchUsers();
-          resolve(result);
-        }, 1500);
-      });
+      await delay(1500);
+      const data = await fetchUsers();
       
       setUsers(data);
       setError(null);
